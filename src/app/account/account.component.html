@@ -1,0 +1,96 @@
+<!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-lg">
+    <form [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+      <p class="text-center text-lg font-medium">Perfil</p>
+
+      <!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+
+      <div>
+        <label for="user_id"
+          class="block overflow-hidden rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+          <span class="text-xs font-medium text-gray-700"> ID </span>
+
+          <input type="user_id" id="user_id"
+            class="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" value="{{session.user.id}}" disabled/>
+        </label>
+      </div>
+
+      <div>
+        <label for="name"
+          class="block overflow-hidden rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+          <span class="text-xs font-medium text-gray-700"> Nombre de usuario </span>
+
+          <input type="text" id="name"
+            class="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+            formControlName="username" />
+        </label>
+      </div>
+
+      <div>
+        <label for="email"
+          class="block overflow-hidden rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+          <span class="text-xs font-medium text-gray-700"> Email </span>
+
+          <input type="email" id="email"
+            class="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" 
+            [value]="session.user.email"/>
+        </label>
+      </div>
+      <div>
+        <label for="full_name"
+          class="block overflow-hidden rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+          <span class="text-xs font-medium text-gray-700"> Nombre completo </span>
+
+          <input type="text" id="full_name"
+            class="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" 
+            formControlName="full_name"
+            />
+        </label>
+      </div>
+      <div>
+        <label for="color_picker"
+          class="block overflow-hidden rounded-md border border-gray-200 px-3 py-2 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+          <span class="text-xs font-medium text-gray-700"> Color </span>
+
+          <input type="color" id="color_picker"
+            class="mt-1 w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm" 
+            formControlName="color_picker"
+            />
+        </label>
+      </div>
+
+      <!--<div>
+        <button class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white;" type="submit" [disabled]="loading">
+          {{ loading ? 'Loading ...' : 'Update' }}
+        </button>
+      </div>-->
+  
+      <div>
+        <!--<button routerLink="canvas" class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white">Entrar en la sala</button>-->
+        <a routerLink='canvas' class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white text-center" href="" (click)="onLinkClick()"> Entrar en la sala </a>
+      </div>
+
+      <p class="text-center text-sm text-gray-500">
+        Ultimo inicio de sesión: {{session.user.last_sign_in_at}}
+        
+      </p>
+
+    </form>
+  </div>
+</div>
